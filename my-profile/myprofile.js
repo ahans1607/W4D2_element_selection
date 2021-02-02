@@ -52,22 +52,37 @@ function addItems(items, parent, className){
     addItems(list, listUl, liClass);
 
 
-    let marq = document.createElement("marquee")
+    // let marq = document.createElement("marquee")
 
-    for (let i = 0; i < 100; i++){
-    let arrMarq = document.createElement("marquee")
-    arrMarq.innerText = "Johnny Appleseed"
-        if (i % 2 === 0){
-            arrMarq.setAttribute("bevahior", "alternate")
-        } else {
-            arrMarq.setAttribute("direction", "down")
+    // for (let i = 0; i < 100; i++){
+    // let arrMarq = document.createElement("marquee")
+    // arrMarq.innerText = "Johnny Appleseed"
+    //     if (i % 2 === 0){
+    //         arrMarq.setAttribute("bevahior", "alternate")
+    //     } else {
+    //         arrMarq.setAttribute("direction", "down")
 
-        }
+    //     }
 
-    document.body.appendChild(arrMarq)
+    // document.body.appendChild(arrMarq)
         
-    }
+    // }
 
     
+    let clock = document.createElement('h2');
+    clock.setAttribute('id', 'clock');
+
+    function ticker(){
+        const date = new Date();
+        const seconds = date.getSeconds();
+        const min = date.getMinutes();
+        const hrs = date.getHours() % 12;
+
+        let tickerText = `${hrs}:${min}:${seconds}`;
+        clock.innerText = tickerText;
+    }
+
+    setInterval(ticker, 1000)
+    document.body.appendChild(clock);
 
 })
