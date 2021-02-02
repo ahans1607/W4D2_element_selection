@@ -9,7 +9,8 @@ window.addEventListener("DOMContentLoaded", event => {
     document.body.appendChild(h1);
     h1.setAttribute('class', "my-name")
     
-
+    let div = document.createElement('div')
+    document.body.appendChild(div)
 
     let ul = document.createElement('ul')
     ul.setAttribute('id', "list")
@@ -84,5 +85,19 @@ function addItems(items, parent, className){
 
     setInterval(ticker, 1000)
     document.body.appendChild(clock);
+
+
+    h1.addEventListener("mousedown", function () {
+        let marq = document.createElement("marquee")
+        let strings = ""
+        for (let i = 0; i < 100; i++) {
+            strings += "Johnny Appleseed "
+        }
+        let arrMarq = document.createElement("marquee")
+        arrMarq.innerText = strings
+        div.appendChild(arrMarq)
+    })
+
+
 
 })
