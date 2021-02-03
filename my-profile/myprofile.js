@@ -8,8 +8,15 @@ window.addEventListener("DOMContentLoaded", event => {
     h1.appendChild(name);
     document.body.appendChild(h1);
     h1.setAttribute('class', "my-name")
+
+    //buttons that add or decrease speed
+    let buttonPlus = document.createElement('button');
+    document.body.appendChild(buttonPlus);
+
+
     
     let div = document.createElement('div')
+    div.setAttribute('id', "marq")
     document.body.appendChild(div)
 
     let ul = document.createElement('ul')
@@ -52,18 +59,6 @@ function addItems(items, parent, className){
 
     addItems(list, listUl, liClass);
 
-    let clock = document.createElement('h2');
-    clock.setAttribute('id', 'clock');
-    function ticker(){
-        const date = new Date();
-        const seconds = date.getSeconds();
-        const min = date.getMinutes();
-        const hrs = date.getHours() % 12;
-        let tickerText = `${hrs}:${min}:${seconds}`;
-        clock.innerText = tickerText;
-    }
-    setInterval(ticker, 1000)
-    document.body.appendChild(clock);
 
 
     // let marq = document.createElement("marquee")
@@ -99,6 +94,8 @@ function addItems(items, parent, className){
     setInterval(ticker, 1000)
     document.body.appendChild(clock);
 
+    
+
 
     h1.addEventListener("mousedown", function () {
         let marq = document.createElement("marquee")
@@ -111,6 +108,21 @@ function addItems(items, parent, className){
         div.appendChild(arrMarq)
     })
 
+    let speed = 10;
+    buttonPlus.addEventListener('click', function () {
+        //  get the marquees using elements by tag name
+        let div = document.getElementById('marq');
+        let marquees = div.getElementsByTagName('marquee');
+        speed += 10;
+
+        for(let mar of marquees){
+            debugger
+            mar.setAttribute('scrollamount', "" + speed)
+        }
+
+
+
+    })
 
 
   
